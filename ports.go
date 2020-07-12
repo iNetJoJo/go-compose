@@ -1,6 +1,6 @@
 package goCompose
 
 type Port struct {
-	In int
-	Out int
+	In int `json:"in"`
+	Out int `json:"out"`
 }

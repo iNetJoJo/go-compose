@@ -10,6 +10,6 @@ type NetworkDriver string
 const Bridge NetworkDriver = "bridge"
 
 type NetworkConfig struct {
-	External bool
-	Driver NetworkDriver
+	External bool `json:"external,omitempty"`
+	Driver NetworkDriver `json:"driver,omitempty"`
 }

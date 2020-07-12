@@ -12,10 +12,10 @@ const V2 = "2"
 const V3 = "3"
 
 type Composer struct {
-	Version  composeVersion
-	Services []*Service
-	Volumes  []*Volume
-	Networks []*Network
+	Version  composeVersion `json:"version,omitempty"`
+	Services []*Service `json:"services,omitempty"`
+	Volumes  []*Volume `json:"volumes,omitempty"`
+	Networks []*Network `json:"networks,omitempty"`
 }
 
 func NewComposer(version composeVersion) *Composer {
