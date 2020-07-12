@@ -1,11 +1,11 @@
 package goCompose
 
 type ServiceDeployConfig struct {
-	Mode deployMode
-	Labels map[string]string
-	Replicas int
-	Placement deployConfigPlacement
-	deployResources
+	Mode deployMode `json:"mode,omitempty"`
+	Labels map[string]string `json:"labels,omitempty"`
+	Replicas int `json:"replicas,omitempty"`
+	Placement deployConfigPlacement `json:"placement,omitempty"`
+	DeployResources deployResources `json:"deploy_resources,omitempty"` 
 }
 
 type endPointMode string
@@ -20,19 +20,19 @@ const ModeGlobal deployMode = "global"
 const ModeReplicated deployMode = "replicated"
 
 type deployConfigPlacement struct {
-	MaxReplicasPerNode int
-	Constraints []string
-	preferences map[string]string
+	MaxReplicasPerNode int `json:"max_replicas_per_node,omitempty"`
+	Constraints []string `json:"constraints,omitempty"`
+	preferences map[string]string `json:"preferences,omitempty"`
 }
 
 type deployResources struct {
-	Limits resources
-	Reservations resources
+	Limits resources `json:"limits,omitempty"`
+	Reservations resources `json:"reservations,omitempty"`
 }
 
 type resources struct {
-	Cpus float32
-	Memory string
+	Cpus float32 `json:"cpus,omitempty"`
+	Memory string `json:"memory,omitempty"`
 }
 
 
@@ -43,10 +43,10 @@ const None restartPolicy = "none"
 const Any restartPolicy = "any"
 
 type deployRestartPolicy struct {
-	Condition restartPolicy
-	Delay int
-	MaxAttempts int
-	Window int
+	Condition restartPolicy `json:"condition,omitempty"`
+	Delay int `json:"delay,omitempty"`
+	MaxAttempts int `json:"max_attempts,omitempty"`
+	Window int `json:"window,omitempty"`
 }
 
 
